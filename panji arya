@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di Balik Kamera Sekolah - Kompas 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            margin: -20px -20px 30px -20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .byline {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .location {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23e0e0e0" width="1200" height="800"/><text x="50%" y="50%" font-family="Arial" font-size="60" fill="%23999" text-anchor="middle" dy=".3em">SMKN 4 Sukabumi</text></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .lead {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin: 30px 0;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .article-body {
+            font-size: 1.1em;
+            line-height: 1.9;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 100%);
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #667eea;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            font-size: 1.15em;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4em;
+            color: #667eea;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .profile-highlight {
+            background: white;
+            border: 2px solid #667eea;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .name {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .handle {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .roles {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .conclusion h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.95em;
+            border-top: 1px solid #eee;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .meta-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image {
+                height: 250px;
+                font-size: 1.5em;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="header">
+            <h1>Di Balik Kamera Sekolah, Sosok Ini Diam-Diam Mengubah Wajah SMKN 4 Sukabumi</h1>
+            <div class="byline">Cheisya Hezima Kristanto</div>
+            <div class="meta-info">
+                <div class="category">Pendidikan</div>
+                <div>Jurnalis Kompas, 2026</div>
+                <div>19 Maret 2026</div>
+                <div class="location">Sukabumi</div>
+            </div>
+        </div>
+
+        <div class="hero-image fade-in">
+            SMKN 4 SUKABUMI
+        </div>
+
+        <div class="lead fade-in">
+            Di tengah pesatnya perkembangan teknologi digital, peran komunikasi dalam dunia pendidikan menjadi semakin penting. Sekolah tidak lagi hanya berfungsi sebagai tempat belajar, tetapi juga sebagai institusi yang aktif membangun citra, menyampaikan informasi, serta menunjukkan identitasnya kepada publik.
+        </div>
+
+        <div class="article-body">
+            <div class="profile-highlight fade-in">
+                <div class="name">Panji Arya Dwi Pangestu</div>
+                <div class="handle">@__pnjdw44</div>
+                <div class="roles">Humas Sekolah • Pelatih Ekstrakurikuler Jurnalistik</div>
+            </div>
+
+            <div class="section fade-in">
+                <h2>Mengelola Informasi di Era Digital</h2>
+                <p>Peran humas dalam lingkungan sekolah kini tidak lagi bersifat administratif semata. Lebih dari itu, humas menjadi ujung tombak dalam membangun komunikasi antara sekolah dengan masyarakat luas.</p>
+                
+                <div class="quote">
+                    “Setiap kegiatan itu punya cerita. Tugas saya adalah memastikan cerita itu bisa sampai ke orang lain dengan cara yang tepat.”
+                </div>
+
+                <p>Panji menjadi salah satu figur yang menjalankan peran tersebut secara aktif. Ia terlibat langsung dalam dokumentasi kegiatan, pengolahan konten, hingga publikasi melalui berbagai platform media sosial.</p>
+
+                <div class="quote">
+                    “Bukan cuma soal cepat, tapi juga tepat. Karena apa yang kita sampaikan itu membawa nama sekolah.”
+                </div>
+            </div>
+
+            <div class="section fade-in">
+                <h2>Proses di Balik Sebuah Publikasi</h2>
+                <p>Di balik satu unggahan yang terlihat sederhana, terdapat proses panjang yang tidak banyak diketahui. Panji harus melalui berbagai tahapan, mulai dari pengambilan gambar, pemilihan materi, penyuntingan, hingga penyusunan narasi.</p>
+
+                <div class="quote">
+                    “Orang mungkin lihatnya cuma satu postingan. Tapi di balik itu ada banyak proses yang kita jalani, dari milih momen sampai nentuin pesan.”
+                </div>
+
+                <p>Di lapangan, tantangan juga menjadi bagian yang tidak terpisahkan. Kondisi yang tidak selalu ideal menuntut kemampuan adaptasi yang tinggi.</p>
+
+                <div class="quote">
+                    “Momen itu tidak selalu besar. Justru yang sederhana sering kali lebih bermakna.”
+                </div>
+            </div>
+
+            <div class="section fade-in">
+                <h2>Membina Siswa Melalui Jurnalistik</h2>
+                <p>Selain menjalankan peran sebagai humas, Panji juga aktif dalam membina siswa melalui ekstrakurikuler jurnalistik. Kegiatan ini menjadi wadah bagi siswa untuk mengembangkan kemampuan di bidang komunikasi dan media.</p>
+
+                <div class="quote">
+                    “Saya ingin mereka paham bahwa jurnalistik itu bukan sekadar membuat konten, tapi juga soal tanggung jawab.”
+                </div>
+
+                <div class="quote">
+                    “Setiap siswa punya cara berkembang yang berbeda. Tugas saya adalah membantu mereka menemukan itu.”
+                </div>
+            </div>
+
+            <div class="section fade-in">
+                <h2>Dampak dan Peran yang Berkelanjutan</h2>
+                <p>Kehadiran Panji dalam dua peran tersebut memberikan dampak yang signifikan, baik dalam membangun citra sekolah maupun dalam pengembangan siswa.</p>
+
+                <div class="quote">
+                    “Saya ingin apa yang kita lakukan di sini tidak berhenti di sekolah saja, tapi bisa dibawa ke luar dan bermanfaat lebih luas.”
+                </div>
+            </div>
+
+            <div class="conclusion fade-in">
+                <h3>Penutup</h3>
+                <p>Meski lebih sering bekerja di balik layar, kontribusi yang diberikan Panji Arya Dwi Pangestu memiliki dampak nyata dalam membangun ekosistem sekolah yang informatif, kreatif, dan adaptif.</p>
+                
+                <div class="quote" style="background: rgba(255,255,255,0.1); border-left-color: white; color: white; margin-top: 20px;">
+                    “Saya tidak harus terlihat. Yang penting hasilnya bisa dirasakan dan bermanfaat.”
+                </div>
+                
+                <p style="margin-top: 20px; opacity: 0.9;">Peran yang dijalankannya menjadi pengingat bahwa di balik setiap informasi yang tersampaikan dengan baik, terdapat proses panjang, ketelitian, dan dedikasi yang tinggi. Dari balik layar, ia tidak hanya bekerja, tetapi juga membangun cerita yang akan terus dikenang.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2026 Kompas.com | Artikel oleh Cheisya Hezima Kristanto</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll dan fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.transform = 'translateY(-5px)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
+</body>
+</html>
